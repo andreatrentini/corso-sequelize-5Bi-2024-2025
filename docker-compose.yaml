@@ -1,0 +1,38 @@
+services:
+  node:
+    container_name: node
+    build: ./node
+    ports:
+      - 3000:3000
+    networks:
+      - rete
+    depends_on:
+      - mysql
+    stdin_open: true
+    tty: true
+
+  mysql:
+    container_name: mysql
+    build: ./mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=cisco
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - rete
+
+  mginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - node
+    
+volumes:
+  mysql-data:
+
+networks:
+  rete: 
+    driver: bridge
+    
