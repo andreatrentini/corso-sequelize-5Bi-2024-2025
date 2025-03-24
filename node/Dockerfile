@@ -1,7 +1,8 @@
 FROM node:latest
 WORKDIR /app
-COPY ./app/package*.json /app
-RUN npm install
-COPY ./app /app
+# COPY ./app/package*.json /app
+# RUN npm install
+RUN npm install -g nodemon
+# COPY ./app /app
 EXPOSE 3000
-CMD ["node", "index.js"]
+CMD ["nodemon", "index.js"]

@@ -1,0 +1,71 @@
+POST http://127.0.0.1:3000/categoria
+Content-type: application/json
+
+{
+    "nome": "Internazionale" 
+}
+
+###
+POST http://127.0.0.1:3000/regione
+Content-type: application/json
+
+{
+    "nome": "Lombardia" 
+}
+
+###
+POST http://127.0.0.1:3000/aeroporto
+Content-type: application/json
+
+{
+    "codice": 2,
+    "nome": "Malpensa",
+    "fkcategoria": 1,
+    "fkcitta": 2
+}
+
+###
+POST http://127.0.0.1:3000/citta
+Content-type: application/json
+
+{
+    "nome": "Milano",
+    "numeroabitanti": 1000000,
+    "fkregione": 2
+}
+###
+POST http://127.0.0.1:3000/volo
+Content-type: application/json
+
+{
+    "orariopartenza": "2025-02-11T12:00:00",
+    "durataminuti": 120,
+    "fkaeroportopartenza": 1,
+    "fkaeroportoarrivo": 2
+}
+
+###
+
+GET http://127.0.0.1:3000/categoria
+
+###
+GET http://127.0.0.1:3000/regione
+
+###
+GET http://127.0.0.1:3000/citta
+
+###
+GET http://127.0.0.1:3000/aeroporto
+
+###
+GET http://127.0.0.1:3000/volo
+
+###
+GET http://127.0.0.1:3000/volo/orario/2025-02-11T10:00:00
+
+###
+
+GET http://127.0.0.1:3000/volo/citta/1
+
+###
+
